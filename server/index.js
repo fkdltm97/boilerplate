@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const config = require("./config/key")
@@ -19,13 +19,12 @@ mongoose.connect(config.mongoURI, {
     useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false
 }).then(() => console.log('mongoDB connected...'))
     .catch(err => console.log(err))
-
-
-
-
+    
 app.get('/', (req, res) => {
-    res.send('Hello World!!! 집에 가즈아')
-});
+res.send('Hello World!!! 집에 가즈아')});
+
+app.get('/api/hello', (req,res) => {
+    res.send("Hello World!~~")})
 
 //회원 가입 라우트
 app.post('/api/users/register', (req, res) => {
@@ -72,7 +71,7 @@ app.post('/api/users/login',(req,res)=>{
 })
 //role 1 -> 어드민 
 //role 0 -> 일반유저
-app.get('.api/users/auth',auth,(req,res) => {
+app.get('/api/users/auth',auth,(req,res) => {
 
     //여기 까지 미들웨어를 통과해 왔다는 애기는 Authentication 이 True 라는 말. 
     res.status(200).json({
@@ -98,5 +97,5 @@ app.get('/api/users/logout',auth, (req , res )=>{
         })
 })
 
-
+const port = 5000;
 app.listen(port, () => console.log('express 연결' + port))
