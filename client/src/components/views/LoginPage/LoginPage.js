@@ -3,6 +3,7 @@ import {withRouter} from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { loginUser } from '../../../_action/user_action';
 
+
 function LoginPage(props) {
     const dispatch = useDispatch();
 
@@ -57,7 +58,6 @@ function LoginPage(props) {
                     Login
                 </button>
             </form>
-
         </div>
         
     );
