@@ -59,7 +59,7 @@ userSchema.pre('save',function(next){
 // 비밀 번호 확인 - 암호화된
 userSchema.methods.comparePassword = function(plainPassword,cb){
     bcrypt.compare(plainPassword, this.password , function(err,isMatch){
-        if(err) return cb(err),
+        if(err) return cb(err)
         cb(null, isMatch)
     })
 }
@@ -89,7 +89,7 @@ userSchema.statics.findByToken = function(token,cb){
 
     //토큰을 decode 한다
 
-    jwt.verify(token, 'secretToken', function(err,decode){
+    jwt.verify(token, 'secretToken', function(err,decoded){
 
 
         user.findOne({"_id":decoded,"token":token},function(err,user){

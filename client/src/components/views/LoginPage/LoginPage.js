@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Axios from 'axios';
+import {withRouter} from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { loginUser } from '../../../_action/user_action';
 
@@ -17,6 +17,8 @@ function LoginPage(props) {
     }
     const onSubmitHandler = (event)=>{
         event.preventDefault();
+
+        
 
         let body = {
             email : Email,
@@ -61,4 +63,4 @@ function LoginPage(props) {
     );
 };
 
-export default LoginPage;
+export default withRouter(LoginPage);
