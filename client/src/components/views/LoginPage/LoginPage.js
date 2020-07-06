@@ -31,7 +31,7 @@ function LoginPage(props) {
             if(response.payload.loginSuccess){
                 props.history.push('/')
             } else {
-                alert('Error')
+                alert('아이디와 비밀번호를 알맞지 않습니다.')
             }
         })
 
